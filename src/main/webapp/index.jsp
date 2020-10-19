@@ -5,9 +5,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="refresh" content="60">
         <title>JSP Page</title>
     </head>
-    <body>
+    <%
+        String color=request.getParameter("color");
+        String [] colors = new String[]{"red", "white", "green", "black", "navy", "yellow"};
+        if(color==null){
+            int index = (int)Math.floor(Math.random()*colors.length);
+            color = colors[index];
+        }
+    %>
+    <body bgcolor="<%=color%>">
+        <form action="#">
+            Color: <input type="color" name="color"/>
+            <input type="submit"/>
         <h1>Hello World!</h1>
     </body>
 </html>
